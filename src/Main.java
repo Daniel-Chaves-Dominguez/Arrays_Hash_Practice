@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        ejercicio9();
+        Bucleejercicio7();
     }
+    //Ejercicios de Array list,HashSet y HashMap
     public static void ejercicio1() {
         // ----- Primer Ejercicio -----
         System.out.println("----- Primer Ejercicio -----");
@@ -163,7 +161,7 @@ public class Main {
         System.out.println("----- Noveno Ejercicio -----");
         HashMap<String, String> usuario = new HashMap<>();
         Scanner sc5 = new Scanner(System.in);
-        usuario.put("joselito", "1234");
+        usuario.put("joselito", "tusmuertosacaballo");
         usuario.put("suxula", "veneno");
         usuario.put("deivi10", "supapa");
         usuario.put("manco", "terry");
@@ -179,6 +177,136 @@ public class Main {
             System.out.println("Login correcto");
         } else {
             System.out.println("Usuario y/o contraseña incorrectos");
+        }
+    }
+
+
+    //Ejercicios de Bucles
+    public static void Bucleejercicio1() {
+        // ----- Primer Ejercicio -----
+        int i = 0;
+        while (i <= 10) {
+            System.out.println(i);
+            i++;
+        }
+    }
+
+
+    public static void Bucleejercicio2() {
+        // ----- Segundo Ejercicio -----
+        int i = 10;
+        while (i >= 1) {
+            System.out.println(i);
+            i--;
+        }
+    }
+
+    public static void Bucleejercicio3() {
+        // ----- Tercer Ejercicio -----
+        int i = 1;
+        int suma = 0;
+        while (i <= 10) {
+            suma += i;
+            i++;
+        }
+        System.out.println(suma);
+    }
+
+    public static void Bucleejercicio4() {
+        // ----- Cuarto Ejercicio -----
+        int i = 1;
+        while (i <= 20) {
+            System.out.println(i);
+            i+=2;
+        }
+    }
+
+    public static void Bucleejercicio5() {
+        // ----- Quinto Ejercicio -----
+        int i = 8;
+        int factorial = 1;
+        while (i > 0) {
+            factorial *= i;
+            i--;
+        }
+        System.out.println(factorial);
+    }
+
+    public static void Bucleejercicio6() {
+        // ----- Sexto Ejercicio -----
+        int aleatorio = new Random().nextInt(10) + 1;
+        Scanner lector = new Scanner(System.in);
+        int i = 0;
+        while (i != aleatorio) {
+            System.out.println("Introduce un número: ");
+            i = lector.nextInt();
+            if (i == aleatorio) {
+                System.out.println("¡Enhorabuena, acertaste el número!");
+            } else {
+                System.out.println("Error. Inténtalo de nuevo");
+            }
+        }
+    }
+
+    public static void Bucleejercicio7() {
+        // ----- Séptimo Ejercicio -----
+        int i = 1;
+        while (i <= 50) {
+            if (i % 3 == 0) {
+                System.out.println(i);
+            }
+            i++;
+        }
+    }
+
+    public static void Bucleejercicio8() {
+        // ----- Octavo Ejercicio -----
+        String usuario_correcto = "juanito";
+        String contrasenha_correcta = "12345";
+        String intento_usuario = "";
+        String intento_contrasenha = "";
+        Scanner lector1  = new Scanner(System.in);
+        boolean acceso = false;
+            while (!acceso){
+                System.out.println("Introduce Usuario: ");
+                intento_usuario = lector1.nextLine();
+                System.out.println("Introduce Contraseña: ");
+                intento_contrasenha = lector1.nextLine();
+
+                if (intento_usuario.equals(usuario_correcto)  && intento_contrasenha.equals(contrasenha_correcta)) {
+                    System.out.println("Login correcto");
+                    acceso = true;
+                } else {
+                    System.out.println("Usuario o contraseña incorrectos");
+                }
+            }
+
+    }
+
+    public static void Bucleejercicio9() {
+        Scanner lector = new Scanner(System.in);
+        String usuario_correcto = "juanito";
+        String contrasenha_correcta = "12345";
+        int intentos = 0;
+        int maxintentos = 3;
+        boolean acierto = false;
+        while ( intentos < maxintentos && !acierto) {
+            System.out.println("Introduce Usuario: ");
+            String usuario = lector.nextLine();
+            System.out.println("Introduce Contraseña: ");
+            String contrasenha = lector.nextLine();
+            if (usuario.equals(usuario_correcto) && contrasenha.equals(contrasenha_correcta)) {
+                System.out.println("Login correcto");
+                acierto = true;
+            } else {
+                intentos++;
+                if (intentos < maxintentos) {
+                System.out.println("Incorrecto. Te quedan " + (maxintentos - intentos) + " intentos");
+                }
+            }
+        }
+        if (!acierto) {
+            System.out.println("DEMASIADOS INTENTOS. CUENTA BLOQUEADA.");
         }
     }
 }
