@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Bucleejercicio7();
+        EjercicioFor9();
+
     }
     //Ejercicios de Array list,HashSet y HashMap
     public static void ejercicio1() {
@@ -263,24 +264,20 @@ public class Main {
         // ----- Octavo Ejercicio -----
         String usuario_correcto = "juanito";
         String contrasenha_correcta = "12345";
-        String intento_usuario = "";
-        String intento_contrasenha = "";
-        Scanner lector1  = new Scanner(System.in);
-        boolean acceso = false;
-            while (!acceso){
-                System.out.println("Introduce Usuario: ");
-                intento_usuario = lector1.nextLine();
-                System.out.println("Introduce Contraseña: ");
-                intento_contrasenha = lector1.nextLine();
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Introduce Usuario: ");
+            String usuario = sc.nextLine();
+            System.out.println("Introduce Contraseña: ");
+            String contrasenha = sc.nextLine();
 
-                if (intento_usuario.equals(usuario_correcto)  && intento_contrasenha.equals(contrasenha_correcta)) {
-                    System.out.println("Login correcto");
-                    acceso = true;
-                } else {
-                    System.out.println("Usuario o contraseña incorrectos");
-                }
+            if (usuario.equals(usuario_correcto) && contrasenha.equals(contrasenha_correcta)) {
+                System.out.println("Login correcto");
+                break;
+            } else {
+                System.out.println("Login incorrecto");
             }
-
+        }
     }
 
     public static void Bucleejercicio9() {
@@ -307,6 +304,79 @@ public class Main {
         }
         if (!acierto) {
             System.out.println("DEMASIADOS INTENTOS. CUENTA BLOQUEADA.");
+        }
+    }
+
+    // Ejercicios de For
+    public static void EjercicioFor1() {
+        // ----- Primer Ejercicio -----
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static void EjercicioFor2() {
+        // ----- Segundo Ejercicio -----
+        for (int i = 10; i >= 1; i--) {
+            System.out.println(i);
+        }
+    }
+
+    public static void EjercicioFor3() {
+        // ----- Tercer Ejercicio -----
+        int suma = 0;
+        for (int i = 1; i <= 10; i++) {
+            suma += i;
+            System.out.println(suma);
+        }
+    }
+
+    public static void EjercicioFor4() {
+        // ----- Cuarto Ejercicio -----
+        for  (int i = 1; i <= 20; i+= 2) {
+            System.out.println(i);
+        }
+    }
+
+    public static void EjercicioFor5() {
+        // ----- Quinto Ejercicio -----
+        int factorial = 1;
+            for (int i = 9; i > 1; i--) {
+                factorial *= i;
+            }
+        System.out.println(factorial);
+    }
+
+    public static void EjercicioFor6() {
+        // ----- Sexto Ejercicio -----
+        for  (int i = 1; i <= 10; i++) {
+            System.out.println("7 x " + i + " = " + (7 * i));
+        }
+    }
+
+    public static void EjercicioFor7() {
+        // ----- Séptimo Ejercicio -----
+        for  (int i = 1; i <= 50; i++) {
+            if(i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    public static void EjercicioFor8() {
+        // ----- Octavo Ejercicio -----
+        System.out.println("Se lanzará un dado 6 veces:");
+            for (int i = 1; i <= 6; i++) {
+                int dado = new Random().nextInt(6) + 1;
+                System.out.println("Lanzamiento " + i + ": " + dado);
+        }
+    }
+
+    public static void EjercicioFor9() {
+        // ----- Noveno Ejercicio -----
+        String[] cadenas = {"Rafa,", "¿qué", "te", "cuesta", "aprobarme?"};
+            for (int i = 0; i < cadenas.length; i++){
+                System.out.println("Cadena " + (i + 1) + ": " + cadenas[i]);
         }
     }
 }
