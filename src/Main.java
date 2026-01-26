@@ -1,10 +1,12 @@
+import java.time.Year;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        EjercicioFor9();
+        ForEachEjercicio9();
 
     }
+
     //Ejercicios de Array list,HashSet y HashMap
     public static void ejercicio1() {
         // ----- Primer Ejercicio -----
@@ -36,7 +38,8 @@ public class Main {
         } else {
             System.out.println("Suspenso");
         }
-}
+    }
+
     public static void ejercicio3() {
         // ----- Tercer Ejercicio -----
         System.out.println("----- Tercer Ejercicio -----");
@@ -218,7 +221,7 @@ public class Main {
         int i = 1;
         while (i <= 20) {
             System.out.println(i);
-            i+=2;
+            i += 2;
         }
     }
 
@@ -287,7 +290,7 @@ public class Main {
         int intentos = 0;
         int maxintentos = 3;
         boolean acierto = false;
-        while ( intentos < maxintentos && !acierto) {
+        while (intentos < maxintentos && !acierto) {
             System.out.println("Introduce Usuario: ");
             String usuario = lector.nextLine();
             System.out.println("Introduce Contraseña: ");
@@ -298,7 +301,7 @@ public class Main {
             } else {
                 intentos++;
                 if (intentos < maxintentos) {
-                System.out.println("Incorrecto. Te quedan " + (maxintentos - intentos) + " intentos");
+                    System.out.println("Incorrecto. Te quedan " + (maxintentos - intentos) + " intentos");
                 }
             }
         }
@@ -333,7 +336,7 @@ public class Main {
 
     public static void EjercicioFor4() {
         // ----- Cuarto Ejercicio -----
-        for  (int i = 1; i <= 20; i+= 2) {
+        for (int i = 1; i <= 20; i += 2) {
             System.out.println(i);
         }
     }
@@ -341,23 +344,23 @@ public class Main {
     public static void EjercicioFor5() {
         // ----- Quinto Ejercicio -----
         int factorial = 1;
-            for (int i = 9; i > 1; i--) {
-                factorial *= i;
-            }
+        for (int i = 9; i > 1; i--) {
+            factorial *= i;
+        }
         System.out.println(factorial);
     }
 
     public static void EjercicioFor6() {
         // ----- Sexto Ejercicio -----
-        for  (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 10; i++) {
             System.out.println("7 x " + i + " = " + (7 * i));
         }
     }
 
     public static void EjercicioFor7() {
         // ----- Séptimo Ejercicio -----
-        for  (int i = 1; i <= 50; i++) {
-            if(i % 2 == 0) {
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 == 0) {
                 System.out.println(i);
             }
         }
@@ -366,17 +369,188 @@ public class Main {
     public static void EjercicioFor8() {
         // ----- Octavo Ejercicio -----
         System.out.println("Se lanzará un dado 6 veces:");
-            for (int i = 1; i <= 6; i++) {
-                int dado = new Random().nextInt(6) + 1;
-                System.out.println("Lanzamiento " + i + ": " + dado);
+        for (int i = 1; i <= 6; i++) {
+            int dado = new Random().nextInt(6) + 1;
+            System.out.println("Lanzamiento " + i + ": " + dado);
         }
     }
 
     public static void EjercicioFor9() {
         // ----- Noveno Ejercicio -----
         String[] cadenas = {"Rafa,", "¿qué", "te", "cuesta", "aprobarme?"};
-            for (int i = 0; i < cadenas.length; i++){
-                System.out.println("Cadena " + (i + 1) + ": " + cadenas[i]);
+        for (int i = 0; i < cadenas.length; i++) {
+            System.out.println("Cadena " + (i + 1) + ": " + cadenas[i]);
         }
+    }
+
+
+    // Ejercicios de For-each
+    public static void ForEachEjercicio1() {
+        // ----- Primer Ejercicio -----
+        String[] cadenaTexto = {"Rafa,", "ser", "tu", "deber", "aprobarme"};
+        for (String cadena : cadenaTexto) {
+            System.out.println(cadena);
+        }
+    }
+
+
+    public static void ForEachEjercicio2() {
+        // ----- Segundo Ejercicio -----
+        Integer[] numeros = {10, 42, 100, 26, 23};
+        int suma = 0;
+        for (Integer numero : numeros) {
+            suma += numero;
+        }
+        System.out.println(suma);
+    }
+
+    public static void ForEachEjercicio3() {
+        // ----- Tercer Ejercicio -----
+        ArrayList<Double> lista = new ArrayList<>();
+        lista.add(3.5);
+        lista.add(4.2);
+        lista.add(5.6);
+        lista.add(6.2);
+        lista.add(7.2);
+
+        double suma = 0.0;
+        for (double numero : lista) {
+            suma += numero;
+        }
+        double media = suma / lista.size();
+        System.out.println("La media es: " + media);
+    }
+
+    public static void ForEachEjercicio4() {
+        // ----- Cuarto Ejercicio -----
+        ArrayList<Integer> lista = new ArrayList<>();
+        lista.add(10);
+        lista.add(25);
+        lista.add(32);
+        lista.add(47);
+        lista.add(55);
+
+        int pares = 0;
+        int impares = 0;
+
+        for (int numero : lista) {
+            if (numero % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+        System.out.println("Hay " + pares + " pares, Hay " + impares + " impares");
+    }
+
+    public static void ForEachEjercicio5() {
+        // ----- Quinto Ejercicio -----
+        String[] nombres = {"Diego", "Daniel", "Alba", "Rafa", "Terry"};
+        System.out.println("Introduce un nombre: ");
+        Scanner sc = new Scanner(System.in);
+        String nombre = sc.nextLine();
+        boolean encontrado = false;
+
+        for (String nom : nombres) {
+            if (nom.equals(nombre)) {
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado) {
+            System.out.println("El nombre " + nombre + " está en el array.");
+        } else {
+            System.out.println("El nombre " + nombre + " NO está en el array.");
+            }
+        }
+
+
+    public static void ForEachEjercicio6() {
+        // ----- Sexto Ejercicio -----
+        HashSet<String> palabras = new HashSet<>();
+        palabras.add("bombero");
+        palabras.add("baloncesto");
+        palabras.add("fútbol");
+        palabras.add("coche");
+        palabras.add("moto");
+
+        String palabraMasLarga = "";
+        for (String palabra : palabras) {
+            if (palabra.length() > palabraMasLarga.length()) {
+                palabraMasLarga = palabra;
+            }
+        }
+        System.out.println("La palabra más larga es: " + palabraMasLarga);
+    }
+
+    public static void ForEachEjercicio7() {
+        // ----- Séptimo Ejercicio -----
+        HashMap<String, Double> nombres = new HashMap<>();
+        nombres.put("Rafa", 4.5);
+        nombres.put("Diego", 5.7);
+        nombres.put("Alba", 7.5);
+        nombres.put("Daniel", 9.5);
+        nombres.put("Terry", 2.3);
+
+        String alumnoMax = "";
+        String alumnoMin = "";
+        double notaMax = 0.0;
+        double notaMin = 10.0;
+        double sumaNotas = 0;
+
+        for (String alumno : nombres.keySet()) {
+            double notaActual = nombres.get(alumno);
+            sumaNotas += notaActual;
+            if (notaActual >= notaMax) {
+                notaMax = notaActual;
+                 alumnoMax = alumno;
+            }if (notaActual <= notaMin) {
+                notaMin = notaActual;
+                 alumnoMin = alumno;
+            }
+        }
+
+        double notaMedia = sumaNotas / nombres.size();
+        System.out.println("La media es: " + notaMedia);
+        System.out.println("Alumno con la nota más alta: " + alumnoMax + "->" + notaMax);
+        System.out.println("Alumno con la nota más baja: " + alumnoMin + "->" + notaMin);
+    }
+
+
+    public static void ForEachEjercicio8() {
+        // ----- Octavo Ejercicio -----
+       HashMap<String, Double> productos = new HashMap<>();
+        productos.put("Leche", 1.20);
+        productos.put("Pan", 0.80);
+        productos.put("Huevos", 2.50);
+        productos.put("Queso", 3.75);
+        productos.put("Mantequilla", 2.00);
+
+        for(String prod: productos.keySet()) {
+            double precioConIva = productos.get(prod) * 1.21;
+            System.out.println(prod + ": " + precioConIva + "€");        }
+    }
+
+    public static void ForEachEjercicio9() {
+        // ----- Noveno Ejercicio -----
+        HashMap<String, Integer> personas = new HashMap<>();
+        personas.put("Rafa", 1997);
+        personas.put("Diego", 2000);
+        personas.put("Alba", 2001);
+        personas.put("Terry", 2009);
+        personas.put("Daniel", 1999);
+
+        int contadorMayores = 0;
+        int anhoActual = 2026;
+
+        for (String pers : personas.keySet()) {
+            int edad = anhoActual -  personas.get(pers);
+            if (edad >= 18) {
+                System.out.println(pers);
+                contadorMayores++;
+            }
+        }
+        System.out.println("Mayores de edad: " + contadorMayores);
     }
 }
